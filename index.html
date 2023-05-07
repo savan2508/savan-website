@@ -81,7 +81,12 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center">
-      <div class="container" id="hometext" data-aos="zoom-in" data-aos-delay="100">
+      <div
+        class="container"
+        id="hometext"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
         <h1>Savan Patel</h1>
         <p>
           I'm
@@ -486,7 +491,7 @@
                   <em
                     >Innovative and deadline-driven programmer and project
                     manager with 5+ years of experience designing and managing
-                    small to large scale projects initial concept to final,
+                    small to large scale projects from initial concept to final,
                     completed product.</em
                   >
                 </p>
@@ -723,7 +728,8 @@
                 <div class="portfolio-info">
                   <h4>Space Invader</h4>
                   <p>
-                    A classic arcade game where shoot down evil aliens using the space ship. 
+                    A classic arcade game where shoot down evil aliens using the
+                    space ship.
                   </p>
                   <div class="portfolio-links">
                     <a
@@ -742,7 +748,7 @@
                 </div>
               </div>
             </div>
-          >
+            >
             <div class="col-lg-4 col-md-6 portfolio-item filter-website">
               <div class="portfolio-wrap">
                 <img
@@ -1043,6 +1049,181 @@
           </div>
         </div>
       </section>
+      <!-- Additional App -->
+      <section id="apps" class="section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Additional Applications</h2>
+          </div>
+
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <img
+                  class="bd-placeholder-img card-img-top"
+                  height="150"
+                  src="./assets/img/Application/news.gif"
+                >
+                </img>
+                <div class="card-body">
+                  <h5 class="card-title">Automatic News Email Sender</h5>
+                  <p class="card-text">
+                    This script allows user to send automate news email based on the subscribers preference.  
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#AutomateNewsEmail"
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <img
+                  class="bd-placeholder-img card-img-top"
+                  height="150"
+                  src="./assets/img/Application/bubble-chat.gif"
+                >
+                </img>
+                <div class="card-body">
+                  <h5 class="card-title">Chatroom Application</h5>
+                  <p class="card-text">
+                    This is a simple chat application created using a python. Please click below for more information. 
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#chatroomapp"
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+          <!-- Modal -->
+          
+          <!-- Modal - Automate email -->
+          <div
+          class="modal fade"
+          id="AutomateNewsEmail"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1
+                  class="modal-title fs-5"
+                  id="staticBackdropLabel"
+                >
+                Automatic News Email Sender
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>The automatic newsletter app is a Python script that sends daily news to a list of subscribers via email. It uses the News API to fetch the latest news articles based on users' interests and sends them in an email using Yagmail library. The app runs on a loop and sends the newsletter every day at 6:00 AM to all the subscribers in the email list. The email list is stored in an Excel file that is read by the script. The users receive a personalized email based on their interests and are greeted by their first name. To use this app, you need to sign up for a free News API account and obtain an API key. Also, you need to have a Gmail account and generate an app password to authenticate with Gmail.</p>
+                  
+                 <p>Try the automatic news application today. Please click on github button for more information.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success"><i class="bi bi-github"></i><a href="https://github.com/savan2508/object-oriented-python-programming/tree/master/AutomateEmail" target="_blank">
+                  Github</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal - Chatroom -->
+        <div
+          class="modal fade"
+          id="chatroomapp"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1
+                  class="modal-title fs-5"
+                  id="staticBackdropLabel"
+                >
+                  Chatroom Application
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>Introducing the Chat Room Application, a simple yet powerful tool that allows you to connect with multiple people in real-time. With its user-friendly interface, this app enables you to communicate with others, regardless of your location, as long as you are connected using a same local network.</p>
+
+                 <p>Built using Python's socket and tkinter libraries, the Chat Room Application provides a platform for people to engage in conversations in a fun and interactive way. Users can join the chat room by entering their name and start sending messages to other connected clients.</p>
+                  
+                 <p>Try the Chat Room Application today and experience the power of real-time communication! Please click on github button for more information.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success"><i class="bi bi-github"></i><a href="https://github.com/savan2508/object-oriented-python-programming/tree/master/Chatroom" target="_blank">
+                  Github</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
 
       <!-- ======= Certificate Section ======= -->
       <section id="testimonials" class="testimonials section-bg">
@@ -1059,38 +1240,61 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <a href="https://coursera.org/share/f5381dcd1aa7d8f85f7535079a981d4a" target="_blank"><img
-                    src="assets/img/Certificates/Google-data-analytics.jpg"
-                    class="testimonial-img"
-                    alt=""
+                  <a
+                    href="https://coursera.org/share/f5381dcd1aa7d8f85f7535079a981d4a"
+                    target="_blank"
+                    ><img
+                      src="assets/img/Certificates/Google-data-analytics.jpg"
+                      class="testimonial-img"
+                      alt=""
                   /></a>
-                  <a href="https://www.credly.com/badges/b7c378fa-3128-4b57-8db0-0a771b6d9a64/" target="_blank"><h3>Google Data Analytics</h3></a>
-                  <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank"><h4>Coursera</h4></a>
+                  <a
+                    href="https://www.credly.com/badges/b7c378fa-3128-4b57-8db0-0a771b6d9a64/"
+                    target="_blank"
+                    ><h3>Google Data Analytics</h3></a
+                  >
+                  <a
+                    href="https://www.coursera.org/professional-certificates/google-data-analytics"
+                    target="_blank"
+                    ><h4>Coursera</h4></a
+                  >
                   <p>
-                    
-                    I earned a Coursera professional certificate in Google Data Analytics by completing a comprehensive program of courses designed to teach key skills in data analysis. This certificate demonstrates my proficiency in tools and techniques commonly used in the field of data analytics, such as SQL, data visualization, and data cleaning.
-                    
+                    I earned a Coursera professional certificate in Google Data
+                    Analytics by completing a comprehensive program of courses
+                    designed to teach key skills in data analysis. This
+                    certificate demonstrates my proficiency in tools and
+                    techniques commonly used in the field of data analytics,
+                    such as SQL, data visualization, and data cleaning.
                   </p>
                 </div>
               </div>
               <!-- End testimonial item -->
 
-              
               <!-- End testimonial item -->
 
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <a href="https://www.udemy.com/certificate/UC-74c5bcd0-3ac3-4fc7-b00d-cd25b30169c5/" target="_blank"><img
-                    src="assets/img/Certificates/Python-Bootcamp.jpg"
-                    class="testimonial-img"
-                    alt=""
+                  <a
+                    href="https://www.udemy.com/certificate/UC-74c5bcd0-3ac3-4fc7-b00d-cd25b30169c5/"
+                    target="_blank"
+                    ><img
+                      src="assets/img/Certificates/Python-Bootcamp.jpg"
+                      class="testimonial-img"
+                      alt=""
                   /></a>
-                  <a href="https://www.udemy.com/course/complete-python-bootcamp/" target="_blank"><h3>Python Bootcamp</h3></a>
-                  <a href="https://www.udemy.com/" target="_blank"><h4>Udemy</h4></a>
+                  <a
+                    href="https://www.udemy.com/course/complete-python-bootcamp/"
+                    target="_blank"
+                    ><h3>Python Bootcamp</h3></a
+                  >
+                  <a href="https://www.udemy.com/" target="_blank"
+                    ><h4>Udemy</h4></a
+                  >
                   <p>
-                    
-                    I completed a Python Bootcamp program and earned a certificate for my proficiency in Python programming language. This program provided me with a strong foundation in Python.
-                    
+                    I completed a Python Bootcamp program and earned a
+                    certificate for my proficiency in Python programming
+                    language. This program provided me with a strong foundation
+                    in Python.
                   </p>
                 </div>
               </div>
@@ -1098,17 +1302,30 @@
 
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <a href="https://www.credly.com/badges/3dee4aa1-5991-4672-b99d-5b6ff767c417/" target="_blank"><img
-                    src="assets/img/Certificates/Sas_Certification.jpg"
-                    class="testimonial-img"
-                    alt=""
+                  <a
+                    href="https://www.credly.com/badges/3dee4aa1-5991-4672-b99d-5b6ff767c417/"
+                    target="_blank"
+                    ><img
+                      src="assets/img/Certificates/Sas_Certification.jpg"
+                      class="testimonial-img"
+                      alt=""
                   /></a>
-                  <a href="https://www.credly.com/badges/3dee4aa1-5991-4672-b99d-5b6ff767c417/" target="_blank"><h3>SAS Certificate</h3></a>
-                  <a href="https://www.sas.com/en_us/certification/credentials/foundation-tools/base-programming-specialist.html" target="_blank"><h4>SAS Education</h4></a>
+                  <a
+                    href="https://www.credly.com/badges/3dee4aa1-5991-4672-b99d-5b6ff767c417/"
+                    target="_blank"
+                    ><h3>SAS Certificate</h3></a
+                  >
+                  <a
+                    href="https://www.sas.com/en_us/certification/credentials/foundation-tools/base-programming-specialist.html"
+                    target="_blank"
+                    ><h4>SAS Education</h4></a
+                  >
                   <p>
-                    
-                    I earned a SAS certification by completing a comprehensive program in SAS software and analytics. This certification demonstrates my proficiency in SAS programming language and my ability to use SAS for data analysis, visualization, and reporting.
-                    
+                    I earned a SAS certification by completing a comprehensive
+                    program in SAS software and analytics. This certification
+                    demonstrates my proficiency in SAS programming language and
+                    my ability to use SAS for data analysis, visualization, and
+                    reporting.
                   </p>
                 </div>
               </div>
@@ -1159,7 +1376,7 @@
     <footer id="footer">
       <div class="container">
         <h3>Savan Patel</h3>
-        <p style="text-align: center;">
+        <p style="text-align: center">
           Thank you for visiting my website. I would love to connect with you.
           Please send me an email, call me, or send me a request on linkedin.
         </p>
@@ -1180,10 +1397,13 @@
         <div class="copyright">
           Edited By - Savan Patel
           <strong><span>MyResume</span></strong
-          >. All Rights Reserved
+          >
         </div>
-        
-      </div>
+       </div>
+       <p style="text-align: center; margin: 0 0 0 0;">Credits</p>
+       <a href="https://www.flaticon.com/free-animated-icons" title="icons">icons created by - Flaticon</a>
+       <a href="https://www.bootstrap.com" title="Style">Style and CSS by - bootstrap</a>
+     
     </footer>
     <!-- End Footer -->
 
