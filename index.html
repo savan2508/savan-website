@@ -1104,6 +1104,38 @@
           </div>
 
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <img
+                  class="bd-placeholder-img card-img-top"
+                  height="150"
+                  src="./assets/img/Application/car.gif"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Self Driving Car</h5>
+                  <p class="card-text">
+                    The Self-Driving Car project is an exciting demonstration of the power of machine learning and artificial intelligence in the field of autonomous vehicles.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#SelfDrivingCar"
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="col">
               <div class="card shadow-sm">
                 <img
@@ -1171,6 +1203,71 @@
         </div>
 
         <!-- Modal -->
+
+        <!-- Modal - Self Driving Car -->
+        <div
+          class="modal fade"
+          id="SelfDrivingCar"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Self Driving Car
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  The Self-Driving Car project is an exciting demonstration of the power of machine learning and artificial intelligence in the field of autonomous vehicles. Using deep Q-learning, an AI agent is trained to navigate a virtual car from the upper left-hand corner to the lower right-hand corner of a grid.
+                </p>
+
+                <p>
+                  Through reinforcement learning techniques, the agent learns to make intelligent decisions based on its current state and the available actions. It explores the grid, collecting experiences and gradually improving its navigation skills through trial and error. The project utilizes a neural network as the Q-function approximator to estimate the expected rewards for different actions in different states.
+                </p>
+                <p>
+                  The visualization of the car's movements and evolving Q-values allows viewers to witness the learning process firsthand. By studying and experimenting with the code, this project offers a unique opportunity to delve into the fundamentals of reinforcement learning and its application in self-driving cars.
+                </p>
+                <p>
+                  As part of a larger Machine Learning and AI Repository, this project serves as an educational resource for individuals interested in machine learning and AI. It provides a hands-on experience, allowing users to gain insights into the challenges and techniques involved in training autonomous agents to navigate complex environments.
+                </p>
+                <p>
+                  Please click on the github button to learn more about the project. 
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success">
+                  <i class="bi bi-github"></i
+                  ><a
+                    href="https://github.com/savan2508/Machine_Learning_and_AI/tree/master/Self-driving%20Car"
+                    target="_blank"
+                  >
+                    Github</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Modal - Automate email -->
         <div
@@ -1478,6 +1575,7 @@
           <a href="mailto:savanpatel4724@gmail.com" class="email"
             ><i class="bx bi-envelope"></i
           ></a>
+          
         </div>
 
         <div class="copyright">
@@ -1492,6 +1590,7 @@
       <a href="https://www.bootstrap.com" title="Style"
         >Style and CSS by - bootstrap</a
       >
+      <a href="https://www.flaticon.com/free-animated-icons/car" title="car animated icons">Car animated icons created by Freepik - Flaticon</a>
     </footer>
     <!-- End Footer -->
 
