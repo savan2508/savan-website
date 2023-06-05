@@ -817,7 +817,16 @@ Additional Applications
   z-index: 9999;
 }
 
+#apps .card-img-top {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
 
+#apps .card-img-top .img-top {
+  height: auto;
+  width: 50%;
+}
 
 
 /*--------------------------------------------------------------
@@ -910,6 +919,23 @@ Additional Applications
 .contact .info {
   width: 100%;
   background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 770px) {
+  .contact .info {
+    flex-direction: column;
+  }
+  .contact .info .email,
+.contact .info .phone {
+  margin-top: 40px;
+}
+.contact .info .email {
+  margin-left: 0%;
+  margin-right: 0%;
+}
 }
 
 .contact .info i {
@@ -941,9 +967,19 @@ Additional Applications
   color: #728394;
 }
 
-.contact .info .email,
-.contact .info .phone {
-  margin-top: 40px;
+@media (min-width: 771px) {
+
+  .contact .info .email {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (min-width: 900px) {
+
+  .contact .info .email {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 }
 
 .contact .info .email:hover i,
