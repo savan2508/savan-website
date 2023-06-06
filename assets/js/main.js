@@ -1,3 +1,70 @@
+// Get reference to the #hero element
+const hero = document.getElementById('hero');
+
+// Define an array of background videos or images
+const backgrounds = [
+  { type: 'video', source: './assets/video/video1.mp4'},
+  { type: 'video', source: './assets/video/video2.mp4'},
+  { type: 'video', source: './assets/video/video3.mp4'},
+  { type: 'video', source: './assets/video/video4.mp4'},
+  { type: 'video', source: './assets/video/video5.mp4'},
+  { type: 'video', source: './assets/video/video6.mp4'},
+  { type: 'video', source: './assets/video/video7.mp4'},
+  { type: 'video', source: './assets/video/video8.mp4'},
+  { type: 'video', source: './assets/video/video9.mp4'},
+  { type: 'video', source: './assets/video/video10.mp4'},
+  { type: 'image', source: './assets/img/background_image/img1.jpg'},
+  { type: 'image', source: './assets/img/background_image/img2.jpg'},
+  { type: 'image', source: './assets/img/background_image/img3.jpg'},
+  { type: 'image', source: './assets/img/background_image/img4.jpg'},
+  { type: 'image', source: './assets/img/background_image/img5.jpg'},
+  { type: 'image', source: './assets/img/background_image/img6.jpg'},
+  // Add more backgrounds as needed
+];
+
+// Get references to HTML elements
+const backgroundBtn = document.getElementById('background-btn');
+const videoElement = document.getElementById('background-video');
+const videoSourceElement = document.getElementById('video-source');
+const heroVideo = document.querySelector('#hero video');
+
+// Attach click event listener to the button
+backgroundBtn.addEventListener('click', changeBackground);
+
+// Call the changeBackground() function on load to get a random background on each load. 
+document.addEventListener('DOMContentLoaded', function() {
+  changeBackground();
+});
+
+// Function to change the background randomly
+function changeBackground() {
+  // Randomly select a background from the array
+  const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+  // Change the background based on the type
+  if (randomBackground.type === 'video') {
+    // Change z-index to make video visible
+    heroVideo.style.zIndex = '0';
+    const newVideoSource = randomBackground.source; // Specify the path to the new video
+  
+    // Update the src attribute of the video source element
+    videoSourceElement.src = newVideoSource;
+    
+    // Load the new video source
+    videoElement.load();
+    // hero.style.background = 'none'; // Clear any previous background image
+    // hero.style.background = `url(${randomBackground.source}) top right no-repeat`;
+  } else if (randomBackground.type === 'image') {
+    // Change the z-index to hide the video
+    heroVideo.style.zIndex = '-1';
+    hero.style.background = `url(${randomBackground.source}) top right no-repeat`;
+    hero.style.width = `100%`;
+    hero.style.height = `100vh`;
+    hero.style.position = `relative`;
+    hero.style.backgroundSize = 'cover';
+  }
+}
+
 
 (function() {
   "use strict";
@@ -13,6 +80,8 @@
       return document.querySelector(el)
     }
   }
+
+
 
   /**
    * Easy event listener function
@@ -65,6 +134,21 @@
       behavior: 'smooth'
     })
   }
+
+  const backgroundBtn = document.getElementById('background-btn');
+
+// Function to handle scroll event
+function handleScroll() {
+  if (window.scrollY > 0) {
+    backgroundBtn.style.opacity = '0';
+  } else {
+    backgroundBtn.style.opacity = '1';
+  }
+}
+
+// Attach scroll event listener to the window
+window.addEventListener('scroll', handleScroll);
+
 
   /**
    * Back to top button
