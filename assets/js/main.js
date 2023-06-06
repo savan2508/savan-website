@@ -27,6 +27,7 @@ const backgroundBtn = document.getElementById('background-btn');
 const videoElement = document.getElementById('background-video');
 const videoSourceElement = document.getElementById('video-source');
 const heroVideo = document.querySelector('#hero video');
+var isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 // Attach click event listener to the button
 backgroundBtn.addEventListener('click', changeBackground);
@@ -62,6 +63,12 @@ function changeBackground() {
     hero.style.height = `100vh`;
     hero.style.position = `relative`;
     hero.style.backgroundSize = 'cover';
+
+    // Change the background and style for the img6
+    var backgroundImage6 = "./assets/img/background_image/img6.jpg";
+    if (isMobile && randomBackground.source === backgroundImage6) {
+      hero.style.backgroundPosition = "left top";
+    }
   }
 }
 

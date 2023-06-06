@@ -319,6 +319,11 @@ p {
   color: #891ad3c3;
 }
 
+#hero h1:hover {
+  -webkit-text-stroke: 2px #891ad3c3;
+  color: transparent;
+}
+
 #hero p {
   color: #6ab619;
   margin: 15px 0 0 0;
@@ -349,6 +354,17 @@ p {
   color: #0563bb;
 }
 
+#home-explore {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  border: 2px solid #fff;
+  padding: 14px 70px;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
 @media (max-width: 992px) {
   #hero {
     /* text-align: center; */
@@ -365,6 +381,12 @@ p {
     font-size: 20px;
     line-height: 24px;
     /* text-align: center; */
+  }
+  #home-explore {
+    font-size: 15px;
+    padding: 10px 40px;
+    border-radius: 30px;
+    margin-top: 17px;
   }
 }
 
