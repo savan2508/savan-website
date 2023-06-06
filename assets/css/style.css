@@ -295,15 +295,6 @@ p {
     }
 }
 
-
-#homepage {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-}
-
-
 @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
