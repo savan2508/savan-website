@@ -82,7 +82,7 @@ function changeBackground() {
     var backgroundImage6 = "./assets/img/background_image/img6.jpg";
     if (isMobile && randomBackground.source === backgroundImage6) {
       hero.style.backgroundPosition = "left top";
-    }
+    };
   }
 }
 
