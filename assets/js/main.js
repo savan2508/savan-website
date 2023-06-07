@@ -45,19 +45,33 @@ function changeBackground() {
   // Change the background based on the type
   if (randomBackground.type === 'video') {
     // Change z-index to make video visible
-    heroVideo.style.zIndex = '0';
+    // heroVideo.style.zIndex = '0';
+    hero.style.background = 'none'; // Clear any previous background image
     const newVideoSource = randomBackground.source; // Specify the path to the new video
   
     // Update the src attribute of the video source element
     videoSourceElement.src = newVideoSource;
     
     // Load the new video source
+    heroVideo.style.transition = 'all 1s ease-in';
     videoElement.load();
-    // hero.style.background = 'none'; // Clear any previous background image
-    // hero.style.background = `url(${randomBackground.source}) top right no-repeat`;
+    // Fade out the previous background
+
+    
+
+
   } else if (randomBackground.type === 'image') {
+    // Reset the src attribute of the video source element
+    videoSourceElement.src = '';
+
+    // Load the empty source to unload the video
+    videoElement.load();
     // Change the z-index to hide the video
-    heroVideo.style.zIndex = '-1';
+    // heroVideo.style.zIndex = '-1';
+
+    // After the previous background fades out, change the background and fade it in
+    
+    hero.style.transition = 'all 1s ease-in';
     hero.style.background = `url(${randomBackground.source}) top right no-repeat`;
     hero.style.width = `100%`;
     hero.style.height = `100vh`;
