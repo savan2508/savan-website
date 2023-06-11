@@ -115,7 +115,7 @@ window.onload = function() {
             roundLog.appendChild(roundLogItem);
         }
 
-        var roundWinner = determineRoundWinner();
+        roundWinner = determineRoundWinner();
         var roundLogEntry = document.createElement("li");
         if (roundWinner !== -1) {
             roundLogEntry.textContent = "Winner: " + playerNames[roundWinner];
@@ -125,11 +125,11 @@ window.onload = function() {
         }
         roundLog.appendChild(roundLogEntry);
 
-        displayDiceResults(diceResults, playerNames);
+        scrollToLastUpdatedPoint();
+
+        animateDiceRoll(2000, 30, diceResults, playerNames);
 
         updateStats(roundNumber, playerNames[roundWinner]);
-
-        scrollToLastUpdatedPoint();
     }
 
     function updateStats(roundNumber, roundWinner) {
@@ -193,8 +193,62 @@ window.onload = function() {
         createPlayerNameFields(numPlayers, numDice);
     }
 
+    function animateDiceRoll(duration, frames, diceResults, playerNames) {
+        // Disable the roll button during animation
+        rollDiceButton.disabled = true;
+      
+        // Clear the result container
+        resultContainer.innerHTML = "";
+      
+        var animationFrame = 0;
+        var animationInterval = duration / frames;
+
+        var diceImages = [];
+        for (var i = 1; i <= 6; i++) {
+          diceImages.push("images/dice" + i + ".png");
+        }
+      
+        var animateDice = setInterval(function() {
+          animationFrame++;
+          if (animationFrame > frames) {
+            clearInterval(animateDice);
+            displayDiceResults(diceResults, playerNames);
+            rollDiceButton.disabled = false; // Enable the roll button
+
+            var winnerMessage = document.createElement("h1");
+
+            if (roundWinner === -1) {
+              winnerMessage.textContent = "Draw! Please Reload.";
+            } else {
+              winnerMessage.textContent = playerNames[roundWinner] + " Wins! 🤩";
+            }
+            
+            resultContainer.insertBefore(winnerMessage, resultContainer.firstChild);
+
+          } else {
+            // Generate random dice numbers for animation frames
+            var playerResult = [];
+            for (var i = 0; i < numPlayers; i++) {
+              var playerDiceResult = [];
+              for (var j = 0; j < numDice; j++) {
+                var randomNumber = Math.floor(Math.random() * 6) + 1;
+                var randomDiceImage = "images/dice" + randomNumber + ".png";
+                playerDiceResult.push(randomDiceImage);
+              }
+              playerResult.push(playerDiceResult);
+            }
+            displayDiceResults(playerResult, playerNames);
+          }
+        }, animationInterval);
+
+      }
+      
+
     function displayDiceResults(results, playerNames) {
         var resultContainer = document.getElementById("resultContainer");
+
+        // Clear the result container
+        resultContainer.innerHTML = "";
 
         for (var i = 0; i < results.length; i++) {
             var playerResult = results[i];
@@ -207,25 +261,15 @@ window.onload = function() {
             playerNameElement.textContent = playerName;
             playerContainer.appendChild(playerNameElement);
 
-            for (var j = 0; j < playerResult.length; j++) {
-            var diceImage = document.createElement("img");
-            diceImage.className = "img" + (j + 1);
-            diceImage.src = playerResult[j];
-            playerContainer.appendChild(diceImage);
-            }
+                for (var j = 0; j < playerResult.length; j++) {
+                    var diceImage = document.createElement("img");
+                    diceImage.className = "img" + (j + 1);
+                    diceImage.src = playerResult[j];
+                    playerContainer.appendChild(diceImage);
+                }
 
             resultContainer.appendChild(playerContainer);
         }
-        
-        var winnerMessage = document.createElement("h1");
-
-        if (roundWinner === -1) {
-            winnerMessage.textContent = "Draw! Please Reload.";
-        } else {
-            winnerMessage.textContent = playerNames[roundWinner] + " Wins! 🤩";
-        }
-
-        resultContainer.insertBefore(winnerMessage, resultContainer.firstChild);
     };
 
     function determineRoundWinner() {
