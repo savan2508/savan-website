@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Dice Roll</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1 id="logo">RollDice</h1>
 
     <div class="container">
-      <h1>Refresh Me</h1>
+      <div class="content">
+        <h2>Welcome to DiceRoll website</h2>
+        <div id="formContainer">
+          
+          <label for="numPlayers">Number of Players:</label>
+          <input type="number" id="numPlayers" min="1" max="10" value="2" />
+          <br />
 
-      <div class="dice">
-        <p>Player 1</p>
-        <img class="img1" src="images/dice6.png">
+          <label for="numDice">Number of Dice:</label>
+          <input type="number" id="numDice" min="1" max="2" value="1" />
+          <br />
+
+          <div id="playerNamesContainer">
+            <!-- Player name fields will be added dynamically here -->
+          </div>
+
+          <button id="rollButton">Let's Roll</button>
+        </div>
+
+        <div id="gameContainer" style="display: none">
+          <button id="rollDiceButton">Roll</button>
+          <button id="resetButton">Reset</button>
+          <div id="resultContainer"></div>
+          <ul id="diceLog"></ul>
+        </div>
       </div>
 
-      <div class="dice">
-        <p>Player 2</p>
-        <img class="img2" src="images/dice6.png">
+      <div class="sidebar">
+        <div class="round-stats-container">
+          <!-- Round statistics content -->
+          <div class="sidebarTextStats">
+            <h3>Round Statistics:</h3>
+            <ul id="roundStats"></ul>
+          </div>
+        </div>
+        <div class="round-log-container">
+          <div class="sidebarTextLog">
+            <h3>Round Log:</h3>
+            <ol id="roundNumber"></ol>
+          </div>
+        </div>
       </div>
-
     </div>
+
     <script src="index.js" charset="utf-8"></script>
-
+    <footer>🎲 By - Savan Patel 🎲</footer>
   </body>
-
-  <footer>
-     🎲 By - Savan Patel 🎲
-  </footer>
 </html>

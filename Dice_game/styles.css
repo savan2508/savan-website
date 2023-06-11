@@ -1,25 +1,121 @@
+
+body {
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  font-family: 'helvetica neue';
+  height: 100%;
+}
+
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  display: block;
+}
+
+#logo:hover {
+  color: #666;
+}
+
 .container {
-  width: 70%;
-  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 0 0 85%;
+  width: 90%;
+  /* margin: auto; */
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15%; /* to set width of the sidebar */
+  height: 100vh; /* to cover the entire viewport */
+  background-color: #f2f2f2; /* Set the background color of the sidebar */
+
+  display: flex; /* Use flexbox to create vertical sections */
+  flex-direction: column; /* Arrange sections vertically */
+  padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+  /* Add a media query for screens up to 767px */
+  .container {
+    flex-direction: column; /* Change to a column layout */
+  }
+
+  .content {
+    flex: 0 0 100%;
+    order: 0;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .sidebar {
+    flex: 0 0 100%; /* Set the width to 100% for mobile screens */
+    order: 1; /* Change the order to appear after the content */
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.round-stats-container{
+  flex: 30%;
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); 
+  border-radius: 10px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.round-log-container {
+  flex: 70%;
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  border-radius: 10px;
+  margin-top: 2px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.sidebarText {
+  margin-left: 10px;
 }
 
 .dice {
   text-align: center;
   display: inline-block;
-
 }
 
-body {
-  background-color: #393E46;
-}
-
-h1 {
-  margin: 30px;
+h2 {
+  /* margin: 30px; */
+  margin-top: 10%;
   font-family: 'Lobster', cursive;
-  text-shadow: 5px 0 #232931;
-  font-size: 8rem;
+  text-shadow: 1px 0 #232931;
+  font-size: 2rem;
   color: #4ECCA3;
+}
+
+#formContainer {
+  margin: auto;
+  justify-content: center;
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 10%;
 }
 
 p {
@@ -34,8 +130,11 @@ img {
 
 footer {
   margin-top: 5%;
-  color: #EEEEEE;
+  color: #000000;
   text-align: center;
   font-family: 'Indie Flower', cursive;
-
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  flex-shrink: 0;
 }
