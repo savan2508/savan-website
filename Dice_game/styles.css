@@ -118,6 +118,10 @@ h2 {
   margin-left: 10%;
 }
 
+#rollButton {
+  margin-top: 5px;
+}
+
 p {
   font-size: 2rem;
   color: #4ECCA3;
