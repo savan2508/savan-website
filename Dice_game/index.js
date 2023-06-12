@@ -14,7 +14,6 @@ window.onload = function() {
     var rollDiceButton = document.getElementById("rollDiceButton");
     var resetButton = document.getElementById("resetButton");
     var gameContainer = document.getElementById("gameContainer");
-    var roundLog = document.getElementById("roundLog");
     var LogoText = document.getElementById("logo");
 
     numPlayersInput.addEventListener("input", createPlayerNameFields);
@@ -38,6 +37,7 @@ window.onload = function() {
         var playerNameField = document.createElement("input");
         playerNameField.type = "text";
         playerNameField.placeholder = "Player " + i + " Name";
+        playerNameField.className = "form-control";
         playerNamesContainer.appendChild(playerNameField);
         }
 
@@ -70,25 +70,10 @@ window.onload = function() {
 
         var diceResults = [];
         roundWinner = -1;
-        var diceLog = document.getElementById("diceLog");
 
         var roundNumberTag = document.getElementById("roundNumber");
 
         var roundNumber = roundNumberTag.children.length + 1;        
-
-        var resultContainer = document.getElementById("resultContainer");
-        resultContainer.innerHTML = "";
-
-        var roundLogContainer = document.getElementById("sidebarTextStats");
-        // roundLogContainer.innerHTML = "";
-
-        
-        var roundNumberItem = document.createElement("li");
-        roundNumberItem.textContent = "Round: " + roundNumber + ":";
-        roundNumberTag.appendChild(roundNumberItem);
-
-        var roundLog = document.createElement("ul"); // Dynamically add unordered list to the round number
-        roundNumberItem.appendChild(roundLog);
 
         for (var i = 0; i < numPlayers; i++) {
             var playerResult = [];
@@ -99,41 +84,131 @@ window.onload = function() {
                 var randomDiceImage = "images/dice" + randomNumber + ".png";
                 playerResult.push(randomDiceImage);
                 playerStats[playerNames[i]].totalRoundRoll += randomNumber; 
-
-                var diceLogItem = document.createElement("li");
-                diceLogItem.textContent = playerNames[i] + ": " + randomNumber;
-                diceLog.appendChild(diceLogItem);
-
             }
 
             playerStats[playerNames[i]].CumulativeTotal += playerStats[playerNames[i]].totalRoundRoll;
 
             diceResults.push(playerResult);
 
-            var roundLogItem = document.createElement("li");
-            roundLogItem.textContent = playerNames[i] + ": " + playerStats[playerNames[i]].totalRoundRoll;
-            roundLog.appendChild(roundLogItem);
         }
-
-        roundWinner = determineRoundWinner();
-        var roundLogEntry = document.createElement("li");
-        if (roundWinner !== -1) {
-            roundLogEntry.textContent = "Winner: " + playerNames[roundWinner];
-        } 
-        else {
-            roundLogEntry.textContent = "Round " + roundNumber + ": Draw";
-        }
-        roundLog.appendChild(roundLogEntry);
-
-        scrollToLastUpdatedPoint();
-
-        animateDiceRoll(2000, 30, diceResults, playerNames);
-
-        updateStats(roundNumber, playerNames[roundWinner]);
+        animateDiceRoll(2000, 30, diceResults, playerNames, roundNumber);
     }
+
+    function animateDiceRoll(duration, frames, diceResults, playerNames, roundNumber) {
+        // Disable the roll button during animation
+        rollDiceButton.disabled = true;
+      
+        var animationFrame = 0;
+        var animationInterval = duration / frames;
+
+        var diceImages = [];
+        for (var i = 1; i <= 6; i++) {
+          diceImages.push("images/dice" + i + ".png");
+        }
+      
+        var animateDice = setInterval(function() {
+          animationFrame++;
+          if (animationFrame > frames) {
+            clearInterval(animateDice);
+            displayDiceResults(diceResults, playerNames);
+            rollDiceButton.disabled = false; // Enable the roll button
+
+            roundWinner = determineRoundWinner();
+
+            updateRoundLog(roundNumber, roundWinner);
+            updateStats(roundNumber, roundWinner);
+            scrollToLastUpdatedPoint();
+
+            var winnerMessage = document.createElement("h1");
+
+            if (roundWinner === -1) {
+              winnerMessage.textContent = "Draw! Please hit roll.";
+            } else {
+              winnerMessage.textContent = playerNames[roundWinner] + " Wins! 🤩";
+            }
+            
+            resultContainer.insertBefore(winnerMessage, resultContainer.firstChild);
+
+          } else {
+            // Generate random dice numbers for animation frames
+            var playerResult = [];
+            for (var i = 0; i < numPlayers; i++) {
+              var playerDiceResult = [];
+              for (var j = 0; j < numDice; j++) {
+                var randomNumber = Math.floor(Math.random() * 6) + 1;
+                var randomDiceImage = "images/dice" + randomNumber + ".png";
+                playerDiceResult.push(randomDiceImage);
+              }
+              playerResult.push(playerDiceResult);
+            }
+            displayDiceResults(playerResult, playerNames);
+          }
+        }, animationInterval);
+      }
+      
+
+    function displayDiceResults(results, playerNames) {
+        var resultContainer = document.getElementById("resultContainer");
+
+        // Clear the result container
+        resultContainer.innerHTML = "";
+
+        for (var i = 0; i < results.length; i++) {
+            var playerResult = results[i];
+            var playerName = playerNames[i];
+
+            var playerContainer = document.createElement("div");
+            playerContainer.className = "dice";
+
+            var playerNameElement = document.createElement("p");
+            playerNameElement.textContent = playerName;
+            playerContainer.appendChild(playerNameElement);
+
+                for (var j = 0; j < playerResult.length; j++) {
+                    var diceImage = document.createElement("img");
+                    diceImage.className = "img" + (j + 1);
+                    diceImage.src = playerResult[j];
+                    playerContainer.appendChild(diceImage);
+                }
+            resultContainer.appendChild(playerContainer);
+        }
+    };
+
+    function updateRoundLog(roundNumber, roundWinner) {
+        var roundLog = document.getElementById("roundNumber");
+        
+        var roundEntry = document.createElement("li");
+        roundEntry.textContent = "Round " + roundNumber + ":";
+        
+        var roundLogList = document.createElement("ul");
+        
+        for (var i = 0; i < numPlayers; i++) {
+        //   var playerResult = diceResults[i];
+          var playerName = playerNames[i];
+      
+          var playerEntry = document.createElement("li");
+          playerEntry.textContent = playerName + ": " + playerStats[playerNames[i]].totalRoundRoll;
+          roundLogList.appendChild(playerEntry);
+        }
+        
+        if (roundWinner !== -1) {
+          var winnerEntry = document.createElement("li");
+          winnerEntry.textContent = "Winner: " + playerNames[roundWinner];
+          roundLogList.appendChild(winnerEntry);
+        } else {
+          var drawEntry = document.createElement("li");
+          drawEntry.textContent = "Draw";
+          roundLogList.appendChild(drawEntry);
+        }
+        
+        roundEntry.appendChild(roundLogList);
+        roundLog.appendChild(roundEntry);
+      }
 
     function updateStats(roundNumber, roundWinner) {
         // Calculate and update stats
+
+        roundWinner = playerNames[roundWinner];
 
         if (typeof roundWinner !== "undefined"){
             playerStats[roundWinner].wins += 1;
@@ -175,9 +250,6 @@ window.onload = function() {
         numPlayersInput.value = 2;
         numDiceInput.value = 1;
     
-        var diceLog = document.getElementById("diceLog");
-        diceLog.innerHTML = "";
-    
         var resultContainer = document.getElementById("resultContainer");
         resultContainer.innerHTML = "";
 
@@ -192,85 +264,6 @@ window.onload = function() {
 
         createPlayerNameFields(numPlayers, numDice);
     }
-
-    function animateDiceRoll(duration, frames, diceResults, playerNames) {
-        // Disable the roll button during animation
-        rollDiceButton.disabled = true;
-      
-        // Clear the result container
-        resultContainer.innerHTML = "";
-      
-        var animationFrame = 0;
-        var animationInterval = duration / frames;
-
-        var diceImages = [];
-        for (var i = 1; i <= 6; i++) {
-          diceImages.push("images/dice" + i + ".png");
-        }
-      
-        var animateDice = setInterval(function() {
-          animationFrame++;
-          if (animationFrame > frames) {
-            clearInterval(animateDice);
-            displayDiceResults(diceResults, playerNames);
-            rollDiceButton.disabled = false; // Enable the roll button
-
-            var winnerMessage = document.createElement("h1");
-
-            if (roundWinner === -1) {
-              winnerMessage.textContent = "Draw! Please Reload.";
-            } else {
-              winnerMessage.textContent = playerNames[roundWinner] + " Wins! 🤩";
-            }
-            
-            resultContainer.insertBefore(winnerMessage, resultContainer.firstChild);
-
-          } else {
-            // Generate random dice numbers for animation frames
-            var playerResult = [];
-            for (var i = 0; i < numPlayers; i++) {
-              var playerDiceResult = [];
-              for (var j = 0; j < numDice; j++) {
-                var randomNumber = Math.floor(Math.random() * 6) + 1;
-                var randomDiceImage = "images/dice" + randomNumber + ".png";
-                playerDiceResult.push(randomDiceImage);
-              }
-              playerResult.push(playerDiceResult);
-            }
-            displayDiceResults(playerResult, playerNames);
-          }
-        }, animationInterval);
-
-      }
-      
-
-    function displayDiceResults(results, playerNames) {
-        var resultContainer = document.getElementById("resultContainer");
-
-        // Clear the result container
-        resultContainer.innerHTML = "";
-
-        for (var i = 0; i < results.length; i++) {
-            var playerResult = results[i];
-            var playerName = playerNames[i];
-
-            var playerContainer = document.createElement("div");
-            playerContainer.className = "dice";
-
-            var playerNameElement = document.createElement("p");
-            playerNameElement.textContent = playerName;
-            playerContainer.appendChild(playerNameElement);
-
-                for (var j = 0; j < playerResult.length; j++) {
-                    var diceImage = document.createElement("img");
-                    diceImage.className = "img" + (j + 1);
-                    diceImage.src = playerResult[j];
-                    playerContainer.appendChild(diceImage);
-                }
-
-            resultContainer.appendChild(playerContainer);
-        }
-    };
 
     function determineRoundWinner() {
         var maxSum = -1;
