@@ -54,6 +54,9 @@ window.onload = function() {
         formContainer.style.display = "none";
     
         gameContainer.style.display = "block";
+
+        sidebarStyle();
+        
         for (var i = 1; i <= numPlayers; i++) {
             var playerNameField = playerNamesContainer.children[i - 1];
             var playerName = playerNameField.value || "Player " + i;
@@ -64,6 +67,8 @@ window.onload = function() {
         playerStats[playerNames[player]] = {wins: 0, winPercentage: 0, totalRoundRoll: 0, CumulativeTotal: 0};
         }
         playerStats["Draw"] = {draw: 0, drawPercentage: 0};
+
+
     }
 
     function rollDice() {
@@ -262,6 +267,7 @@ window.onload = function() {
         playerStats = {};
         playerNames = [];
 
+        homePageStyleDefault();
         createPlayerNameFields(numPlayers, numDice);
     }
 
@@ -290,5 +296,73 @@ var roundLogContainer = document.querySelector('.round-log-container');
 // Function to scroll the container to the last updated point
 function scrollToLastUpdatedPoint() {
   roundLogContainer.scrollTop = roundLogContainer.scrollHeight;
+}
+
+function homePageStyleDefault() {
+    // Change the style of the webpage to the default
+
+    var content = document.getElementsByClassName("content")[0];
+    var sideBar = document.getElementsByClassName("sidebar")[0];
+
+    sideBar.style.display = "none";
+
+    content.style.flex = "";
+    content.style.width = "90%";
+    content.style.textAlign = "center";
+    content.style.marginRight = "";
+    content.style.justifyContent = "center";
+    content.style.alignItems = "center";
+}
+
+function sidebarStyle() {
+    // Change the style of the sidebar dynamically
+
+    var sideBar = document.getElementsByClassName("sidebar")[0];
+    var content = document.getElementsByClassName("content")[0];
+    
+    content.style.flex = "0 0 85%";
+    content.style.width = "90%";
+    content.style.textAlign = "center";
+    content.style.marginRight = "15%";
+    content.style.justifyContent = "center";
+    content.style.alignItems = "center";
+
+    sideBar.style.display = "block";
+
+    sideBar.style.width = "15%";
+    sideBar.style.position = "absolute";
+    sideBar.style.top = "0";
+    sideBar.style.right = "0";
+    sideBar.style.height = "100vh";
+    sideBar.style.display = "flex";
+    sideBar.style.flexDirection = "column";
+    sideBar.style.paddingRight = "10px";
+
+    // Add media query dynamically
+    var style = document.createElement("style");
+    style.textContent = `
+        @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+    
+        .content {
+            flex: 0 0 100%;
+            order: 0;
+            margin-bottom: 10%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    
+        .sidebar {
+            flex: 0 0 100%;
+            order: 1;
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+        }
+    `;
+    document.head.appendChild(style);
 }
 
