@@ -86,6 +86,33 @@ function changeBackground() {
   }
 }
 
+/* Read More buttons for the job description: */
+// City of PCB Read more button
+var PCBJobReadMoreBtn = document.getElementById("pcbread-more-btn");
+var PCBJobFullText = document.getElementById("pcbreadmore");
+
+PCBJobReadMoreBtn.addEventListener("click", function(){
+  readMoreFunc(PCBJobFullText, PCBJobReadMoreBtn)
+});
+
+// Osceola County Read more button
+var OsceolaJobReadMoreBtn = document.getElementById("osceolaread-more-btn");
+var OsceolaJobFullText = document.getElementById("osceolareadmore");
+
+OsceolaJobReadMoreBtn.addEventListener("click", function(){
+  readMoreFunc(OsceolaJobFullText, OsceolaJobReadMoreBtn)
+});
+
+function readMoreFunc(fullText, readMoreBtn) {
+  if (fullText.style.display === 'none') {
+    fullText.style.display = 'block';
+    readMoreBtn.textContent = 'Read Less';
+  } else {
+    fullText.style.display = 'none';
+    readMoreBtn.textContent = 'Read More';
+  }
+};
+
 
 (function() {
   "use strict";

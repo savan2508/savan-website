@@ -634,6 +634,15 @@ section {
   border: 2px solid #0563bb;
 }
 
+.resume .read-more-btn {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0563bb;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
