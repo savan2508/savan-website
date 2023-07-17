@@ -274,25 +274,25 @@ p {
   position: relative;
 }
 
-#hero video{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+#hero video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-@media(min-aspect-ratio: 16/9){
-    #hero video{
-        width: 100%;
-        height: auto;
-    }
+@media (min-aspect-ratio: 16/9) {
+  #hero video {
+    width: 100%;
+    height: auto;
+  }
 }
 
-@media(max-aspect-ratio: 16/9){
-    #hero video{
-        width: auto;
-        height: 100%;
-    }
+@media (max-aspect-ratio: 16/9) {
+  #hero video {
+    width: auto;
+    height: 100%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -396,7 +396,6 @@ p {
   right: 20px;
   transition: opacity 0.3s;
 }
-
 
 /*--------------------------------------------------------------
 # Sections General
@@ -571,6 +570,39 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: #0563bb;
+}
+
+#skillicongrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  
+}
+#skillicongrid img {
+  height: 30px;
+  width: 30px;
+  transition: transform 0.2s;
+  flex-grow: 1;
+  flex-basis: fit-content; /* Adjust the percentage as needed */
+  max-width: 20px; 
+}
+#skillicongrid img:hover {
+  transform: scale(
+    3
+  ); 
+}
+#skillicon {
+  background-color: rgb(237, 240, 244);
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 5%;
 }
 
 /*--------------------------------------------------------------
@@ -888,7 +920,6 @@ Additional Applications
   width: 50%;
 }
 
-
 /*--------------------------------------------------------------
 # Certification
 --------------------------------------------------------------*/
@@ -969,8 +1000,6 @@ Additional Applications
   .testimonials .testimonial-item p {
     width: 80%;
   }
-
-  
 }
 
 /*--------------------------------------------------------------
@@ -989,13 +1018,13 @@ Additional Applications
     flex-direction: column;
   }
   .contact .info .email,
-.contact .info .phone {
-  margin-top: 40px;
-}
-.contact .info .email {
-  margin-left: 0%;
-  margin-right: 0%;
-}
+  .contact .info .phone {
+    margin-top: 40px;
+  }
+  .contact .info .email {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
 }
 
 .contact .info i {
@@ -1028,14 +1057,12 @@ Additional Applications
 }
 
 @media (min-width: 771px) {
-
   .contact .info .email {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
 @media (min-width: 900px) {
-
   .contact .info .email {
     margin-left: 15%;
     margin-right: 15%;
