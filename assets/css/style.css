@@ -831,6 +831,9 @@ section {
   bottom: 15px;
   right: 15px;
 }
+.modal a {
+  color: #f2f3f5;
+}
 
 /*--------------------------------------------------------------
 # Portfolio Details

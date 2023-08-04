@@ -482,8 +482,8 @@
               </div>
             </div>
           </div>
+          
           <div id="skillicon">
-            
             <div id="skillicongrid">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg", alt="python icon" />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg", alt="bootstrap" />
@@ -508,8 +508,8 @@
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original-wordmark.svg" />
             </div>
-          
           </div>
+          
         </div>
       </section>
       <!-- End Skills Section -->
@@ -1402,7 +1402,9 @@
           </div>
         </div>
       </section>
+
       <!-- Additional App -->
+
       <section id="apps" class="section-bg">
         <div class="container" data-aos="fade-up">
           <div class="section-title">
@@ -1433,6 +1435,35 @@
                         class="btn btn-primary"
                         data-bs-toggle="modal"
                         data-bs-target="#SelfDrivingCar"
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile - WeatherMap -->
+            <div class="col">
+              <div class="card h-100 text-bg" style="background-color: #ffa8B6;">
+                <div class="card-img-top">
+                  <img class="img-top" src="./assets/img/Application/weather_cloud.gif" />
+                  <!-- <a href="https://lordicon.com/">Icons by Lordicon.com</a> -->
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">WeatherMap Library</h5>
+                  <p class="card-text">
+                    WeatherMap is a powerful Python library designed to simplify weather data retrieval for your projects.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#WeatherMapModal"
                       >
                         Details
                       </button>
@@ -1512,7 +1543,7 @@
             </div>
 
             <div class="col">
-              <div class="card h-100 text-bg-info">
+              <div class="card h-100 text-bg" style="background-color: #a28089;">
                 <div class="card-img-top">
                   <img
                     class="img-top"
@@ -1520,7 +1551,6 @@
                     src="./assets/img/Application/bubble-chat.gif"
                   />
                 </div>
-
                 <div class="card-body">
                   <h5 class="card-title">Chatroom Application</h5>
                   <p class="card-text">
@@ -1636,6 +1666,46 @@
           </div>
         </div>
 
+        <!-- Modal - WeatherMap -->
+        <div class="modal fade" id="WeatherMapModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">WeatherMap Library</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  WeatherMap is an exciting Python library that simplifies weather data retrieval, making it easy to integrate accurate weather forecasts into various development projects.
+                </p>
+                <p>
+                  With just an API key from openweathermap.org, you can access essential weather information for any city or location. Whether you're developing applications, websites, or data analysis projects, WeatherMap has got you covered.
+                </p>
+                <p>
+                  This library provides a straightforward solution to the complexities of handling weather data, delivering only the necessary information you require.
+                </p>
+                <p>
+                  Utilize WeatherMap to enhance your projects with real-time weather insights and empower your applications with weather forecasting capabilities.
+                </p>
+                <p>
+                  Embrace WeatherMap and never worry about weather data again! Click the GitHub button to explore the project.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">
+                  <i class="bi bi-github"></i>
+                  <a href="https://github.com/savan2508/WeatherApp" target="_blank">Github</a>
+                </button>
+                <button type="button" class="btn btn-success">
+                  <a href="https://pypi.org/project/weathermap/" target="_blank">PyPI</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <!-- Modal - DictionaryWebapp -->
         <div
           class="modal fade"
@@ -1646,9 +1716,7 @@
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div
-            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-          >
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">
