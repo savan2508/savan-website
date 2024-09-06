@@ -41,6 +41,39 @@
   </head>
 
   <body>
+
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="websiteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notice</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>This website is no longer maintained or updated. Please feel free to explore it, but if you want to know more about my current work, visit my new website created using the latest technologies like React.</p>
+          <p><strong>New Website:</strong> <a href="https://savanpatel.net" target="_blank">https://savanpatel.net</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="https://savanpatel.net" class="btn btn-primary">Visit New Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button to Navigate to New Website (Bottom Left) -->
+  <button id="newWebsiteButton" onclick="window.location.href='https://savanpatel.net'">Go to New Website</button>
+
+  <!-- Bootstrap JS -->
+  <script>
+    // Show the modal when the page loads
+    window.onload = function () {
+      var myModal = new bootstrap.Modal(document.getElementById('websiteModal'));
+      myModal.show();
+    };
+  </script>
+
     <!-- ======= Mobile nav toggle button ======= -->
     <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
     <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>

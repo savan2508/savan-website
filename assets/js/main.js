@@ -47,10 +47,9 @@ function changeBackground() {
     // Change z-index to make video visible
     // heroVideo.style.zIndex = '0';
     hero.style.background = 'none'; // Clear any previous background image
-    const newVideoSource = randomBackground.source; // Specify the path to the new video
-  
+     // Specify the path to the new video
     // Update the src attribute of the video source element
-    videoSourceElement.src = newVideoSource;
+    videoSourceElement.src = randomBackground.source;
     
     // Load the new video source
     heroVideo.style.transition = 'all 1s ease-in';
